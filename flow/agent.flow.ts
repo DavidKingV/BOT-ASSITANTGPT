@@ -1,20 +1,11 @@
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import { numberClean } from "../src/utils/presence";
 import { enviarMensajeFacebook } from "../src/utils/alertaagent";
-import { connection } from '../src/mysql-database';
 
-async function saveAppointmentToDatabase(phone: string, name: string, date: string): Promise<void> {
-    const query = `INSERT INTO survey (phone, name, date) VALUES (?, ?, ?)`;
-    try {
-        const [result] = await connection.query(query, [phone, name, date]);
-        console.log('Appointment saved successfully:', result);
-    } catch (error) {
-        console.error('Error saving appointment:', error);
-    }
-}
-
-
-export const appointmentFlow = addKeyword(['AGENDAR', 'AGENDAR CITA'])    
+export const agentFlow = addKeyword(['AGENTE', 'AGENTE HUMANO'])    
+    .addAnswer(
+        'Con gusto te transferiré con un agente humano 👨‍💼',
+    )
     .addAnswer(
         'Por favor indicame tu nombre completo 🙌',
         {
@@ -25,20 +16,19 @@ export const appointmentFlow = addKeyword(['AGENDAR', 'AGENDAR CITA'])
         }
     )
     .addAnswer(
-        'Por favor idicame la fecha y hora de tu cita 📅',
+        'Ahora indicame sobre que tema deseas hablar con el agente humano 👨‍💼',
         {
             capture: true,
         },
         async (ctx, { state }) => {
-            await state.update({ date: ctx.body })
+            await state.update({ case: ctx.body })
             const myState = state.getMyState()
-            await saveAppointmentToDatabase(ctx.from, myState.name, myState.date);
         }
     )
     .addAction(async (ctx, { blacklist, flowDynamic, state }) => {
         const myState = state.getMyState()
         const toMute = numberClean(`Mute +${ctx.from}`) //Mute +34000000 message incoming
-        const check = blacklist.checkIf(toMute)            
+        const check = blacklist.checkIf(toMute)
         if (!check) {
             blacklist.add(toMute)
             await flowDynamic([{ 
@@ -46,10 +36,9 @@ export const appointmentFlow = addKeyword(['AGENDAR', 'AGENDAR CITA'])
                 delay: 2000 
             }])
             await flowDynamic([{ 
-                body: `Un agente humano confirmará tu cita en breve 🕒`,
+                body: `Un agente humano te contactará en breve 🕒`,
                 delay: 2000 
             }])
-
             enviarMensajeFacebook(ctx)
             return
         }
@@ -57,5 +46,3 @@ export const appointmentFlow = addKeyword(['AGENDAR', 'AGENDAR CITA'])
         await flowDynamic(`¿Dime como puedo ayudarte? 🤔`)
         return  
     })
-
-    
