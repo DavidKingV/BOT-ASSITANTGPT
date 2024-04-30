@@ -12,6 +12,7 @@
   },
   "keywords": [],
   "dependencies": {
+    "@builderbot-plugins/openai-agents": "^1.0.10",
     "@builderbot-plugins/openai-assistants": "^0.0.2",
     "@builderbot/bot": "1.1.4-alpha.2",
     "@builderbot/database-mysql": "^1.1.3",
