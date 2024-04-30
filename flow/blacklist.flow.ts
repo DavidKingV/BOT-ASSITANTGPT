@@ -4,7 +4,7 @@ import { numberClean } from "../src/utils/presence";
 
 export const blackListFlow = addKeyword('mute')
     .addAction(async (ctx, { blacklist, flowDynamic }) => {
-        if (ctx.from === '5215532479739') {
+        if (ctx.from === `${process.env.ADMIN_NUMBER}`) {
             console.log(ctx.from)
             const toMute = numberClean(ctx.body) //Mute +34000000 message incoming
             const check = blacklist.checkIf(toMute)
