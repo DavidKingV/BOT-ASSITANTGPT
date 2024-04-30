@@ -5,7 +5,7 @@ interface Message {
 
 const messageQueue: Message[] = [];
 
-const MESSAGE_GAP_SECONDS = 5000;
+const MESSAGE_GAP_SECONDS = 3000;
 
 let messageTimer: NodeJS.Timeout | null = null;
 

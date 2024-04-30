@@ -5,5 +5,6 @@ import { appointmentFlow } from './appointment.flow';
 import { reappointmentFlow } from './reappointment.flow';
 import { cancelappointmentFlow } from './cancelappointment.flow';
 import { agentFlow } from './agent.flow';
+import { testFlow } from './test.flow';
 
-export const flow = createFlow([welcomeFlow, blackListFlow, appointmentFlow, reappointmentFlow, cancelappointmentFlow, agentFlow]);
+export const flow = createFlow([welcomeFlow, blackListFlow, appointmentFlow, reappointmentFlow, cancelappointmentFlow, agentFlow, testFlow]);
