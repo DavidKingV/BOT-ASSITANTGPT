@@ -1,10 +1,11 @@
+import "dotenv/config"
 import { MysqlAdapter } from '@builderbot/database-mysql'
 import mysql from 'mysql2/promise'
 
-const MYSQL_DB_HOST = 'db5015748462.hosting-data.io'
-const MYSQL_DB_USER = 'dbu3066118'
-const MYSQL_DB_PASSWORD = 'Botunif123@'
-const MYSQL_DB_NAME = 'dbs12849036'
+const MYSQL_DB_HOST = process.env.MYSQL_DB_HOST 
+const MYSQL_DB_USER = process.env.MYSQL_DB_USER
+const MYSQL_DB_PASSWORD = process.env.MYSQL_DB_PASSWORD
+const MYSQL_DB_NAME = process.env.MYSQL_DB_NAME
 const MYSQL_DB_PORT = 3306
 
 export type IDatabase = typeof MysqlAdapter
