@@ -1,11 +1,11 @@
 import * as https from 'https';
 
 export function enviarMensajeFacebook(ctx: any) {
-    const url = 'https://graph.facebook.com/v19.0/103246079200463/messages';
+    const url = `https://graph.facebook.com/v19.0/${process.env.PHONE_ID}/messages`;
 
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
-        "to": "525532176490",
+        "to": `${process.env.TO_WHATSAPP}`,
         "type": "template",
         "template": {
             "name": "bot_noti",
@@ -29,7 +29,7 @@ export function enviarMensajeFacebook(ctx: any) {
     const options = {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer EAALpzKqlqWYBAOnZCupNT0OlTlIZBaTvcIumax5jDnWpa35bfkn2EKIoqLjO6aaeEOT0nhgaVUZBOlcnSiuiVV8x9hA5u1ATVPoplbOlCAaNNwDZCSMqigDTxmpTXJnaGEiE03QRv3E0ZBKgBuRkeBFbFRTFy8YtYQBr8ZByZBB8btcro4QmInhhmzVAIVFiKtZBLxIhzSFhNgZDZD',
+            'Authorization': `Bearer ${process.env.TOKE_WHATSAPP}`,
             'Content-Type': 'application/json',
             'Content-Length': data.length
         }
