@@ -1,5 +1,5 @@
 import "dotenv/config"
-//import { adapterDB } from './mysql-database';
+//import { adapterDB } from '../src/utils/mysql-database';
 import { MemoryDB as Database } from '@builderbot/bot' //memoryDB
 import { createBot, createProvider } from '@builderbot/bot'
 import { flow } from '../flow'

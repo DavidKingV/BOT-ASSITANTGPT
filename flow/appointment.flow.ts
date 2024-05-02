@@ -1,10 +1,10 @@
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import { numberClean } from "../src/utils/presence";
 import { enviarMensajeFacebook } from "../src/utils/alertaagent";
-/*import { connection } from '../src/mysql-database';
-import { enqueueMessage } from '../src/utils/fast-entires';*/
+import { connection } from '../src/utils/mysql-database';
+import { enqueueMessage } from '../src/utils/fast-entires';
 
-/*async function saveAppointmentToDatabase(phone: string, name: string, date: string): Promise<void> {
+async function saveAppointmentToDatabase(phone: string, name: string, date: string): Promise<void> {
     const query = `INSERT INTO survey (phone, name, date) VALUES (?, ?, ?)`;
     try {
         const [result] = await connection.query(query, [phone, name, date]);
@@ -12,7 +12,7 @@ import { enqueueMessage } from '../src/utils/fast-entires';*/
     } catch (error) {
         console.error('Error saving appointment:', error);
     }
-}*/
+}
 
 export const appointmentFlow = addKeyword(['AGENDAR', 'AGENDAR CITA'])    
     .addAnswer(
@@ -23,7 +23,7 @@ export const appointmentFlow = addKeyword(['AGENDAR', 'AGENDAR CITA'])
         'Por favor idicame la fecha y hora de tu cita 📅',
         { capture: true, }, async (ctx, { state }) => { await state.update({ date: ctx.body })
             const myState = state.getMyState()
-            /*await saveAppointmentToDatabase(ctx.from, myState.name, myState.date);*/
+            await saveAppointmentToDatabase(ctx.from, myState.name, myState.date);
         }
     )
     .addAction(async (ctx, { blacklist, flowDynamic, state }) => {
