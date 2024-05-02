@@ -1,8 +1,8 @@
 import "dotenv/config"
-import { adapterDB } from './mysql-database';
+//import { adapterDB } from './mysql-database';
+import { MemoryDB as Database } from '@builderbot/bot' //memoryDB
 import { createBot, createProvider } from '@builderbot/bot'
 import { flow } from '../flow'
-//import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 import { httpInject } from "@builderbot-plugins/openai-assistants"
 
@@ -11,6 +11,7 @@ const PORT = process.env?.PORT ?? 3008
 const main = async () => {
     const adapterFlow = flow
     const adapterProvider = createProvider(Provider)
+    const adapterDB = new Database()
 
     const { httpServer } = await createBot({
         flow: adapterFlow,
