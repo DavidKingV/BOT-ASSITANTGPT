@@ -1,3 +1,4 @@
+import "dotenv/config"
 import { addKeyword, EVENTS } from "@builderbot/bot";
 import { numberClean } from "../src/utils/presence";
 
