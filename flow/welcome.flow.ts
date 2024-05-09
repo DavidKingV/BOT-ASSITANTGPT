@@ -21,7 +21,8 @@ export const welcomeFlow = addKeyword(EVENTS.WELCOME)
     .addAction(async (ctx, { flowDynamic, state, provider }) => {
         console.log(ctx.from)
         /*saveAppointmentToDatabase(ctx.from, ctx.body, new Date().toISOString())*/
-        await typing(ctx, provider)
+        //await typing(ctx, provider)
+        await provider.vendor.sendPresenceUpdate('composing', ctx.key.remoteJid)
         const response = await toAsk(ASSISTANT_ID, ctx.body, state)
         const chunks = response.split(/(?<!\d)\.\s+/g);
         for (const chunk of chunks) {
