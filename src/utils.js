@@ -1,4 +1,5 @@
-import { downloadMediaMessage } from "@adiwajshing/baileys";
+//import { downloadMediaMessage } from "@adiwajshing/baileys";
+import { downloadMediaMessage } from "@whiskeysockets/baileys";
 
 import fs from 'node:fs/promises';
 import { convertOggMp3 } from '../services/convert';
