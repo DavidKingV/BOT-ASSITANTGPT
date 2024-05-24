@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@adiwajshing/baileys':
-    specifier: latest
-    version: 5.0.0
   '@builderbot-plugins/openai-agents':
     specifier: ^1.0.10
     version: 1.0.10
@@ -15,17 +12,20 @@ dependencies:
     specifier: ^0.0.2
     version: 0.0.2
   '@builderbot/bot':
-    specifier: 1.1.4-alpha.2
-    version: 1.1.4-alpha.2
+    specifier: 1.1.6
+    version: 1.1.6
   '@builderbot/database-mysql':
     specifier: ^1.1.3
     version: 1.1.3
   '@builderbot/provider-baileys':
-    specifier: 1.1.4-alpha.2
-    version: 1.1.4-alpha.2
+    specifier: 1.1.6
+    version: 1.1.6
   '@ffmpeg-installer/ffmpeg':
     specifier: ^1.1.0
     version: 1.1.0
+  '@whiskeysockets/baileys':
+    specifier: ^6.7.2
+    version: 6.7.2
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
@@ -90,43 +90,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@adiwajshing/baileys@5.0.0:
-    resolution: {integrity: sha512-AeNyYLfw1nhCwc7hDlMajU9Zr5DK4zmEO8rdrmxUR1qUbmhSKOL6IzwZpyvPjsXyHvl+oPMbp5k8+PX2p6RlJg==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      '@adiwajshing/keyed-db': ^0.2.4
-      jimp: ^0.16.1
-      link-preview-js: ^3.0.0
-      qrcode-terminal: ^0.12.0
-      sharp: ^0.30.5
-    peerDependenciesMeta:
-      '@adiwajshing/keyed-db':
-        optional: true
-      jimp:
-        optional: true
-      link-preview-js:
-        optional: true
-      qrcode-terminal:
-        optional: true
-      sharp:
-        optional: true
-    dependencies:
-      '@hapi/boom': 9.1.4
-      axios: 0.24.0
-      futoin-hkdf: 1.5.3
-      libsignal: github.com/adiwajshing/libsignal-node/11dbd962ea108187c79a7c46fe4d6f790e23da97
-      music-metadata: 7.14.0
-      node-cache: 5.1.2
-      pino: 7.11.0
-      protobufjs: 6.11.4
-      ws: 8.17.0
-    transitivePeerDependencies:
-      - bufferutil
-      - debug
-      - supports-color
-      - utf-8-validate
-    dev: false
-
   /@adiwajshing/keyed-db@0.2.4:
     resolution: {integrity: sha512-yprSnAtj80/VKuDqRcFFLDYltoNV8tChNwFfIgcf6PGD4sjzWIBgs08pRuTqGH5mk5wgL6PBRSsMCZqtZwzFEw==}
     dev: false
@@ -160,7 +123,7 @@ packages:
   /@builderbot-plugins/openai-assistants@0.0.2:
     resolution: {integrity: sha512-BYls4XJc1prdyo4oVQIma2q52T8VT3OLhEtZKKOusATuqFrkQN+q/h/KlZwkwLaxZgOnYKq3EKarSe3NJLP9Xg==}
     dependencies:
-      '@builderbot/bot': 1.1.3
+      '@builderbot/bot': 1.1.6
       multer: 1.4.5-lts.1
       openai: 4.42.0
       polka: 0.5.2
@@ -170,26 +133,8 @@ packages:
       - supports-color
     dev: false
 
-  /@builderbot/bot@1.1.3:
-    resolution: {integrity: sha512-4C0hPjmAoDs/EoZ9WPc2ugba1VA+kBY5/uGcgVRTtcCv1UVhsDtyP7Q1Bbhm2M63IwjiC1a/TTwcvvvyLLRPzQ==}
-    dependencies:
-      '@ffmpeg-installer/ffmpeg': 1.1.0
-      body-parser: 1.20.2
-      cors: 2.8.5
-      fluent-ffmpeg: 2.1.2
-      follow-redirects: 1.15.6
-      mime-types: 2.1.35
-      picocolors: 1.0.0
-      polka: 0.5.2
-    optionalDependencies:
-      sharp: 0.33.3
-    transitivePeerDependencies:
-      - debug
-      - supports-color
-    dev: false
-
-  /@builderbot/bot@1.1.4-alpha.2:
-    resolution: {integrity: sha512-AdEVzQAey9h3tgUuip4Wyb0QdSjJZPOpbWmEo7avbnWEctH0T65wFUrMiO3G5iDMQA3ejoGuww1xMzddC4j80Q==}
+  /@builderbot/bot@1.1.6:
+    resolution: {integrity: sha512-ljMT2UVZd6lH73e1UUomjml+h5LBUWb46nQtw9p+vOFQAfM/GWC9cUfhX661WtsrWdiN2jataXP59L2IDpJD/w==}
     dependencies:
       '@ffmpeg-installer/ffmpeg': 1.1.0
       body-parser: 1.20.2
@@ -209,15 +154,15 @@ packages:
   /@builderbot/database-mysql@1.1.3:
     resolution: {integrity: sha512-1rBIj6e8sBa1F63dvzINUlLVjsCd2ApwF3oMoFMsy/oPh1drG1CEkGbF/Ts9WNqUuEz/9QUJfM+ZK5V3HjcCfw==}
     dependencies:
-      '@builderbot/bot': 1.1.3
+      '@builderbot/bot': 1.1.6
       mysql2: 2.3.3
     transitivePeerDependencies:
       - debug
       - supports-color
     dev: false
 
-  /@builderbot/provider-baileys@1.1.4-alpha.2:
-    resolution: {integrity: sha512-QW8U0xyAWDiG/VkxWbuSj0jiwwcVJmpl5YsQDtdIZ4TCkgFDXGMzfq1zlzs5kZSSCvHUryOfqw96dzKgNAEapw==}
+  /@builderbot/provider-baileys@1.1.6:
+    resolution: {integrity: sha512-DwJAhgEI0HfaURy2ErBiB3C8btXPhNLIoYXteOu+slDH1zHKM+x/NGCK3gr3PEXl2FqUDhzXiPOwIgqs5+gjdw==}
     dependencies:
       '@ffmpeg-installer/ffmpeg': 1.1.0
       '@types/polka': 0.5.7
@@ -1312,7 +1257,45 @@ packages:
       pino: 7.11.0
       protobufjs: 7.2.6
       uuid: 9.0.1
-      ws: 8.16.0
+      ws: 8.17.0
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - supports-color
+      - utf-8-validate
+    dev: false
+
+  /@whiskeysockets/baileys@6.7.2:
+    resolution: {integrity: sha512-ttZJuFo4iuwzQbUClx+RKaREStaVYwc0uNRlcd5kLEV3z8Lp2fcoKqrFMKIQbm6+8dgGK8MdYHGtAv9eh//itg==}
+    peerDependencies:
+      jimp: ^0.16.1
+      link-preview-js: ^3.0.0
+      qrcode-terminal: ^0.12.0
+      sharp: ^0.32.2
+    peerDependenciesMeta:
+      jimp:
+        optional: true
+      link-preview-js:
+        optional: true
+      qrcode-terminal:
+        optional: true
+      sharp:
+        optional: true
+    dependencies:
+      '@adiwajshing/keyed-db': 0.2.4
+      '@hapi/boom': 9.1.4
+      audio-decode: 2.2.0
+      axios: 1.6.8
+      cache-manager: 4.0.1
+      futoin-hkdf: 1.5.3
+      libphonenumber-js: 1.10.61
+      libsignal: github.com/adiwajshing/libsignal-node/11dbd962ea108187c79a7c46fe4d6f790e23da97
+      music-metadata: 7.14.0
+      node-cache: 5.1.2
+      pino: 7.11.0
+      protobufjs: 7.2.6
+      uuid: 9.0.1
+      ws: 8.17.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -1431,14 +1414,6 @@ packages:
   /audio-type@2.2.1:
     resolution: {integrity: sha512-En9AY6EG1qYqEy5L/quryzbA4akBpJrnBZNxeKTqGHC2xT9Qc4aZ8b7CcbOMFTTc/MGdoNyp+SN4zInZNKxMYA==}
     engines: {node: '>=14'}
-    dev: false
-
-  /axios@0.24.0:
-    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
-    dependencies:
-      follow-redirects: 1.15.6
-    transitivePeerDependencies:
-      - debug
     dev: false
 
   /axios@1.6.8:
@@ -2826,26 +2801,6 @@ packages:
     resolution: {integrity: sha512-du4wfLyj4yCZq1VupnVSZmRsPJsNuxoDQFdCFHLaYiEbFBD7QE0a+I4D7hOxrVnh78QE/YipFAj9lXHiXocV+Q==}
     dev: false
 
-  /protobufjs@6.11.4:
-    resolution: {integrity: sha512-5kQWPaJHi1WoCpjTGszzQ32PG2F4+wRY6BmAT4Vfw56Q2FZ4YZzK20xUYQH4YkfehY1e6QSICrJquM6xXZNcrw==}
-    hasBin: true
-    requiresBuild: true
-    dependencies:
-      '@protobufjs/aspromise': 1.1.2
-      '@protobufjs/base64': 1.1.2
-      '@protobufjs/codegen': 2.0.4
-      '@protobufjs/eventemitter': 1.1.0
-      '@protobufjs/fetch': 1.1.0
-      '@protobufjs/float': 1.0.2
-      '@protobufjs/inquire': 1.1.0
-      '@protobufjs/path': 1.1.2
-      '@protobufjs/pool': 1.1.0
-      '@protobufjs/utf8': 1.1.0
-      '@types/long': 4.0.2
-      '@types/node': 20.12.7
-      long: 4.0.0
-    dev: false
-
   /protobufjs@6.8.8:
     resolution: {integrity: sha512-AAmHtD5pXgZfi7GMpllpO3q1Xw1OYldr+dMUlAnffGTAhqkg72WdmSY71uKBF/JuyiKs8psYbtKrhi0ASCD8qw==}
     hasBin: true
@@ -3420,19 +3375,6 @@ packages:
 
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
-
-  /ws@8.16.0:
-    resolution: {integrity: sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-    dev: false
 
   /ws@8.17.0:
     resolution: {integrity: sha512-uJq6108EgZMAl20KagGkzCKfMEjxmKvZHG7Tlq0Z6nOky7YF7aq4mOx6xK8TJ/i1LeK4Qus7INktacctDgY8Ow==}
